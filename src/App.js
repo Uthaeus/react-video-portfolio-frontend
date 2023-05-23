@@ -42,6 +42,9 @@ const router = createBrowserRouter([
         element: <SignIn />
       }
     ]
+  },
+  {
+    path: "/projects",
   }
 ]);
 
