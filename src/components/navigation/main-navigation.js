@@ -1,9 +1,34 @@
 import { NavLink, Link } from "react-router-dom";
+import { useContext } from "react";
+
+import { UserContext } from "../../store/user-context";
 
 function MainNavigation() {
+    const userCtx = useContext(UserContext);
 
     function logoutHandler() {
         console.log('logout');
+
+        if (!userCtx.user) {
+            return;
+        }
+
+        let token = localStorage.getItem('video-token');
+
+        fetch('http://localhost:4000/users/sign_out', {
+            method: 'DELETE',
+            headers: {
+                'Authorization': `Bearer ${token}`
+            }
+        })
+        .then(response => {
+            if (response.ok) {
+                localStorage.removeItem('video-token');
+                userCtx.logout();
+                return response.json();
+            }
+        })
+        .catch(error => console.log('logout error:', error));
     }
 
     return (
