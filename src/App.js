@@ -10,6 +10,8 @@ import ErrorPage from "./components/error/error";
 import SignUp from "./components/auth/sign_up";
 import SignIn from "./components/auth/sign_in";
 import { UserContext } from "./store/user-context";
+import ProjectsLayout from "./components/layouts/projects-layout";
+import Projects from "./components/projects/projects";
 
 const router = createBrowserRouter([
   {
@@ -45,6 +47,14 @@ const router = createBrowserRouter([
   },
   {
     path: "/projects",
+    element: <ProjectsLayout />,
+    errorElement: <ErrorPage />,
+    children: [
+      {
+        index: true,
+        element: <Projects />
+      }
+    ]
   }
 ]);
 

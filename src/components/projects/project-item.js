@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 function ProjectItem({ project }) {
   return (
     <div>
-      <Link><h3>{project.name}</h3></Link>
+      <Link to={`/projects/${project.id}`}><h3>{project.name}</h3></Link>
       <p>{project.description}</p>
     </div>
   )
