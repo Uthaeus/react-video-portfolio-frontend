@@ -100,6 +100,9 @@ function MainNavigation() {
             </NavLink>
           </>
         )}
+        {userCtx.user?.role === "site_admin" && (
+            <NavLink to="/projects" className={({ isActive }) => isActive ? "nav-link link-active" : "nav-link"}>Projects</NavLink>
+        )}
       </div>
     </nav>
   );

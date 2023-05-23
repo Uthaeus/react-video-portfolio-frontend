@@ -7,7 +7,6 @@ function HomePage() {
         fetch('http://localhost:4000/home')
             .then(response => response.json())
             .then(data => {
-                console.log('homepage data:', data);
                 setPageTitle(data.title);
             })
             .catch(error => console.log('error:', error));
