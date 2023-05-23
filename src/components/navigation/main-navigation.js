@@ -2,6 +2,10 @@ import { NavLink, Link } from "react-router-dom";
 
 function MainNavigation() {
 
+    function logoutHandler() {
+        console.log('logout');
+    }
+
     return (
         <nav className="main-navigation">
             <div className="main-navigation-logo-wrapper">
@@ -16,7 +20,9 @@ function MainNavigation() {
             </div>
 
             <div className="main-navigation-auth">
-                Auth here
+                <Link className="nav-link" onClick={logoutHandler}>Logout</Link>
+                <NavLink to="/sign-in" className={({isActive}) => isActive ? 'nav-link link-active' : 'nav-link'}>Sign In</NavLink>
+                <NavLink to="/sign-up" className={({isActive}) => isActive ? 'nav-link link-active' : 'nav-link'}>Sign Up</NavLink>
             </div>
         </nav>
     );

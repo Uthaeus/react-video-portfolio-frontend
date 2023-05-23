@@ -6,6 +6,8 @@ import AboutPage from "./pages/about";
 import ContactPage from "./pages/contact";
 import OptionsPage from "./pages/options";
 import ErrorPage from "./components/error/error";
+import SignUp from "./components/auth/sign_up";
+import SignIn from "./components/auth/sign_in";
 
 const router = createBrowserRouter([
   {
@@ -28,6 +30,14 @@ const router = createBrowserRouter([
       {
         path: "options",
         element: <OptionsPage />
+      },
+      {
+        path: "sign-up",
+        element: <SignUp />
+      },
+      {
+        path: "sign-in",
+        element: <SignIn />
       }
     ]
   }
