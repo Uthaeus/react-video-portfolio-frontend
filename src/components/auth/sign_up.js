@@ -41,7 +41,9 @@ function SignUp() {
             }
         })
         .then(data => {
-            console.log(data);
+            console.log('sign up data:', data.data);
+            userCtx.login(data.data);
+            navigate('/');
         })
         .catch(error => console.log('sign up error:', error));
     }

@@ -34,9 +34,8 @@ function SignIn() {
             }
         })
         .then(data => {
-            console.log(data);
-            // userCtx.login(data);
-            // navigate('/');
+            userCtx.login(data.status.data);
+            navigate('/');
         })
         .catch(error => console.log('sign in error:', error));
     }
