@@ -17,7 +17,7 @@ function EditProject() {
         })
         .then((data) => setProject(data))
         .catch((error) => console.log("project error:", error));
-    }, []);
+    }, [id]);
 
     return (
         <div className="project-detail-container">
