@@ -12,6 +12,8 @@ import SignIn from "./components/auth/sign_in";
 import { UserContext } from "./store/user-context";
 import ProjectsLayout from "./components/layouts/projects-layout";
 import Projects from "./components/projects/projects";
+import ProjectDetail from "./components/projects/project-detail";
+import EditProject from "./components/projects/edit-project";
 
 const router = createBrowserRouter([
   {
@@ -53,6 +55,14 @@ const router = createBrowserRouter([
       {
         index: true,
         element: <Projects />
+      },
+      {
+        path: "/projects/:id",
+        element: <ProjectDetail />
+      },
+      {
+        path: "/projects/:id/edit",
+        element: <EditProject />
       }
     ]
   }
