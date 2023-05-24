@@ -44,13 +44,13 @@ function CommentForm({ project_id, comment_id, commentSubmitHandler }) {
     }
 
     return (
-        <form onSubmit={handleSubmit(submitHandler)}>
-            <div className="form-group mb-3">
+        <form onSubmit={handleSubmit(submitHandler)} className="comment-form-container">
+            <div className="form-group mb-2">
                 <textarea className="form-control" {...register("content", { required: true })} />
                 {errors?.content && <span>This field is required</span>}
             </div>
 
-            <button type="submit" className="btn btn-primary">Submit</button>
+            <button type="submit" className="comment-form-btn">Submit</button>
         </form>
     );
 }
