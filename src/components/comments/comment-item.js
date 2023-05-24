@@ -7,8 +7,6 @@ function CommentItem({ comment }) {
     const [showReplyForm, setShowReplyForm] = useState(false);
     const [showReplies, setShowReplies] = useState(false);
 
-    console.log(comment);
-
     return (
         <>
             <div className="comment-item">

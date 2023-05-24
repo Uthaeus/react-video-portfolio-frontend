@@ -5,10 +5,12 @@ import { Link } from "react-router-dom";
 import { UserContext } from "../../store/user-context";
 import CommentForm from "../comments/comment-form";
 import CommentItem from "../comments/comment-item";
+import { ProjectStatusToggle } from "../util/project-status";
 
 function ProjectDetail() {
     const [project, setProject] = useState({});
     const [comments, setComments] = useState([]);
+    const [status, setStatus] = useState("draft");
     const { id } = useParams();
     const userCtx = useContext(UserContext);
     const navigate = useNavigate();
@@ -22,6 +24,7 @@ function ProjectDetail() {
         })
         .then((data) => {
             setProject(data);
+            setStatus(data.status);
             setComments(data.comments);
         })
         .catch((error) => console.log("project error:", error));
@@ -50,6 +53,10 @@ function ProjectDetail() {
         setComments((prevComments) => [...prevComments, comment]);
     }
 
+    function toggleStatusHandler() {
+        ProjectStatusToggle({ id: project.id, currentStatus: project.status });
+        setStatus((prevStatus) => (prevStatus === "draft" ? "published" : "draft"));
+    }
 
     return (
         <div className="project-detail-container">
@@ -60,8 +67,10 @@ function ProjectDetail() {
                     <h4 className="project-detail-subtitle">{project.subtitle}</h4>
                 </div>
 
+                <p onClick={toggleStatusHandler}>{status}</p>
+
                 <div className="project-detail-video-wrapper">
-                    <video className="project-detail-video" controls>
+                    <video className="project-detail-video" width='95%' controls>
                         <source src={project.video_url} type="video/mp4" />
                     </video>
                 </div>

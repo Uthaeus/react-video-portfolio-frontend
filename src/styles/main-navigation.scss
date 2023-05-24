@@ -1,26 +1,29 @@
 
 .main-navigation {
     width: 100%;
-    padding: 4px 20px;
-    background-color: #333;
-    color: #fff;
+    padding-right: 30px;
+    background-color: #1C2B2D;
+    color: #E6D5B8;
     display: grid;
     grid-template-columns: 1fr 2fr 1fr;
 
     .main-navigation-logo-wrapper {
+        width: 250px;
         display: flex;
         align-items: center;
+        border-radius: 0 80px 0 0;
+        background: url("../assets/images/space-main1.jpg") no-repeat left center;
 
         .main-navigation-logo {
             font-size: 1.8em;
+            margin-left: 2rem;
             font-weight: bold;
-            color: #067ca0;
+            color: $blue;
             text-decoration: none;
             transition: all 0.4s ease-in-out;
 
             &:hover {
-                color: #025e58;
-                transform: scale(1.1);
+                transform: scale(1.2) translateX(10px)
             }
         }
     }
@@ -40,19 +43,19 @@
     .nav-link {
         margin-left: 2rem;
         font-size: 1.2em;
-        color: #fff;
+        color: #99A8B2;
         text-decoration: none;
         transition: all 0.4s ease-in-out;
 
         &:hover {
-            color: #ccc;
+            color: #1F6F8B;
             transform: scale(1.1);
         }
     }
 
     .link-active {
-        color: #ccc;
+        color: #1F6F8B;
         transform: scale(1.1);
-        border-bottom: 1px solid #ccc;
+        border-bottom: 1px solid #1F6F8B;
     }
 }
