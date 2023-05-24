@@ -30,9 +30,11 @@ function Projects() {
             <div className="projects-header">
                 <h1 className="projects-title">Projects</h1>
                 {userCtx.user?.role === "site_admin" && (
-                    <button className="new-project-btn" onClick={() => setIsForm(!isForm)}>
-                        {isForm ? "Hide Form" : "Add Project"}
-                    </button>
+                    <div className="new-project-btn-wrapper">
+                        <button className="new-project-btn" onClick={() => setIsForm(!isForm)}>
+                            {isForm ? "Hide Form" : "Add Project"}
+                        </button>
+                    </div>
                 )}
             </div>
             <hr />

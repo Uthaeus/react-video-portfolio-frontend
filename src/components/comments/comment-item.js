@@ -5,19 +5,23 @@ import CommentCommentItem from "./comment-comment-item";
 
 function CommentItem({ comment }) {
     const [showReplyForm, setShowReplyForm] = useState(false);
+    const [showReplies, setShowReplies] = useState(false);
 
     
 
     return (
         <div className="comment-item">
-            <p>{comment.content}</p>
+            <p className="comment-item-content">{comment.content}</p>
 
-            <p onClick={() => setShowReplyForm(!showReplyForm)}>{showReplyForm ? 'close form' : 'reply'}</p>
+            <div className="comment-item-actions">
+                <p className="comment-item-action reply" onClick={() => setShowReplyForm(!showReplyForm)}>{showReplyForm ? 'close form' : 'reply'}</p>
+                {comment.replies?.length > 0 && <p className="comment-item-action replies" onClick={() => setShowReplies(!showReplies)}>{showReplies ? "hide replies" : "show replies"}</p>}
+            </div>
             <p>{comment.user?.username}</p>
 
             {showReplyForm && <CommentForm comment_id={comment.id} commentSubmitHandler={() => setShowReplyForm(false)} />}
 
-            {comment.replies?.map((comment) => <CommentCommentItem key={comment.id} comment={comment} />)}
+            {showReplies && comment.replies?.map((comment) => <CommentCommentItem key={comment.id} comment={comment} />)}
         </div>
     );
 }

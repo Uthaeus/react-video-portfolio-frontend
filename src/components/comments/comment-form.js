@@ -45,8 +45,7 @@ function CommentForm({ project_id, comment_id, commentSubmitHandler }) {
 
     return (
         <form onSubmit={handleSubmit(submitHandler)}>
-            <div className="form-group">
-                <label htmlFor="content">Content</label>
+            <div className="form-group mb-3">
                 <textarea className="form-control" {...register("content", { required: true })} />
                 {errors?.content && <span>This field is required</span>}
             </div>

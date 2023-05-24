@@ -9,13 +9,19 @@
         display: grid;
         grid-template-columns: 1fr 1fr;
 
+        .new-project-btn-wrapper {
+            width: 100%;
+            display: flex;
+            align-items: flex-end;
+            justify-content: flex-end;
+        }
+
         .new-project-btn {
             width: 20%;
-            height: 35px;
             text-decoration: none;
-            padding: 3px 20px;
+            padding: 2px 20px;
             border-radius: 5px;
-            background-color: rgb(9, 63, 189);
+            background-color: rgb(3, 40, 23);
             color: white;
             font-size: 1.2rem;
             box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.5);
@@ -33,13 +39,13 @@
         font-weight: 700;
         text-align: center;
         margin-bottom: 2rem;
-        color: rgb(26, 122, 100);
+        color: $blue;
     }
 
     .projects-list {
         width: 100%;
         display: grid;
-        grid-template-columns: repeat(3, 1fr);
+        grid-template-columns: repeat(2, 1fr);
         grid-gap: 2rem;
 
     }
@@ -47,5 +53,149 @@
     .projects-form {
         width: 60%;
         margin: 0 auto;
+    }
+}
+
+// Project Item 
+
+.project-item {
+    width: 100%;
+    padding: 0;
+    text-decoration: none;
+    border: 1px solid black;
+    border-radius: 2px;
+    display: grid;
+    grid-template-columns: 2fr 3fr;
+    transition: all 0.3s ease-in-out;
+
+    &:hover {
+        box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.5);
+        transform: scale(1.1);
+    }
+
+    .project-item-title {
+        font-size: 1.5rem;
+        font-weight: 700;
+        padding: 0 1rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: $blue;
+    }
+}
+
+// Project Detail
+
+.project-detail-container {
+    width: 100%;
+    padding: 2rem;
+    display: grid;
+    grid-template-columns: 3fr 2fr;
+
+    .project-detail-content {
+        position: relative;
+        width: 100%;
+        min-height: calc(100vh - 100px);
+        padding: 0 1rem;
+
+        .project-detail-content-header {
+            width: 100%;
+            padding: 0 1rem;
+            border-bottom: 2px solid $green;
+        }
+
+        .project-detail-title {
+            font-size: 3em;
+            font-weight: 700;
+            color: $green;
+        }
+
+        .project-detail-subtitle {
+            font-size: 1.5rem;
+            font-weight: 400;
+            color: $blue;
+        }
+
+        .project-detail-actions {
+            width: 100%;
+            position: absolute;
+            bottom: 0;
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+    
+            .project-detail-link {
+                text-decoration: none;
+                margin-right: 1rem;
+                padding: 2px 20px;
+                border-radius: 5px;
+                color: white;
+                font-size: 1.2rem;
+                box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.5);
+                transition: all 0.3s ease-in-out;
+    
+                &:hover {
+                    box-shadow: 4px 4px 7px rgba(0, 0, 0, 0.703);
+                    transform: scale(1.1);
+                }
+            }
+    
+            .edit {
+                background-color: $green;
+            }
+    
+            .delete {
+                background-color: $red;
+            }
+    
+            .back {
+                background-color: $blue;
+            }
+        }
+
+        .project-detail-video-wrapper {
+            width: 100%;
+            padding: 0 1rem;
+            margin: 3rem auto;
+            border-bottom: 1px solid $green;
+
+            .project-detail-video {
+                width: 100%;
+                height: 100%;
+            }
+        }
+    }
+
+    .project-detail-right-column {
+        width: 100%;
+        padding: 0 1rem;
+        display: flex;
+        flex-direction: column;
+        
+        .project-detail-body-wrapper {
+            width: 90%;
+            min-height: 25vh;
+            margin: 3rem auto;
+            padding: 1rem;
+            border-bottom: 1px solid $green;
+
+            .project-detail-body {
+                color: #121212;
+                letter-spacing: 1px;
+                font-size: 1.1em;
+            }
+        }
+
+        .project-detail-comments {
+            padding: 0 1rem;
+
+            .project-detail-comments-title {
+                text-align: end;
+                font-size: 1.5rem;
+                font-weight: 700;
+                color: $blue;
+                text-decoration: underline;
+            }
+        }
     }
 }

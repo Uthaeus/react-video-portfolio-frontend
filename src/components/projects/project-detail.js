@@ -1,5 +1,5 @@
 import { useState, useEffect, useContext } from "react";
-import { useParams } from "react-router";
+import { useParams, useNavigate } from "react-router";
 import { Link } from "react-router-dom";
 
 import { UserContext } from "../../store/user-context";
@@ -11,6 +11,7 @@ function ProjectDetail() {
     const [comments, setComments] = useState([]);
     const { id } = useParams();
     const userCtx = useContext(UserContext);
+    const navigate = useNavigate();
 
     useEffect(() => {
         fetch(`http://localhost:4000/projects/${id}`)
@@ -26,30 +27,72 @@ function ProjectDetail() {
         .catch((error) => console.log("project error:", error));
     }, [id]);
 
+    function deleteHandler() {
+        fetch(`http://localhost:4000/projects/${id}`, {
+            method: "DELETE",
+            headers: {
+                'Authorization': `Bearer ${localStorage.getItem('video-token')}`,
+            }
+        })
+        .then((response) => {
+            if (response.ok) {
+                navigate("/projects");
+                return response.json();
+            }
+        })
+        .then((data) => {
+            console.log("project deleted:", data);
+        })
+        .catch((error) => console.log("project delete error:", error));
+    }
+
     function commentSubmitHandler(comment) {
         setComments((prevComments) => [...prevComments, comment]);
     }
 
+
     return (
         <div className="project-detail-container">
-            <h1>{project.title}</h1>
 
-            <div className="project-detail-comments">
-                <h2>Comments</h2>
-                {userCtx.user && <CommentForm user_id={userCtx.user.id} project_id={project.id} commentSubmitHandler={commentSubmitHandler} />}
-                {comments.map((comment) => <CommentItem key={comment.id} comment={comment}d />)}
+            <div className="project-detail-content">
+                <div className="project-detail-content-header">
+                    <h1 className="project-detail-title">{project.title}</h1>
+                    <h4 className="project-detail-subtitle">{project.subtitle}</h4>
+                </div>
+
+                <div className="project-detail-video-wrapper">
+                    <video className="project-detail-video" controls>
+                        <source src={project.video_url} type="video/mp4" />
+                    </video>
+                </div>
+
+                
+
+                <div className="project-detail-actions">
+                    {userCtx.user?.role === "site_admin" && (
+                        <>
+                            <Link className="project-detail-link edit" to={`/projects/${id}/edit`}>Edit</Link>
+                            <Link className="project-detail-link delete" onClick={deleteHandler}>Delete</Link>
+                        </>
+                    )}
+
+                    <Link className="project-detail-link back" to="/projects">Back to Projects</Link>
+                </div>
             </div>
 
-            <div className="project-detail-actions">
-                {userCtx.user?.role === "site_admin" && (
-                    <>
-                        <Link to={`/projects/${id}/edit`}>Edit</Link>
-                        <Link to={`/projects/${id}/delete`}>Delete</Link>
-                    </>
-                )}
+            <div className="project-detail-right-column">  
 
-                <Link to="/projects">Back to Projects</Link>
-            </div>
+                <div className="project-detail-body-wrapper">
+                    <p className="project-detail-body">{project.body}</p>
+                </div>
+
+                <div className="project-detail-comments">
+                    <h2 className="project-detail-comments-title">Comments</h2>
+                    {userCtx.user && <CommentForm user_id={userCtx.user.id} project_id={project.id} commentSubmitHandler={commentSubmitHandler} />}
+                    {comments.map((comment) => <CommentItem key={comment.id} comment={comment}d />)}
+                </div>
+            </div>                
+            
         </div>
     );
 }

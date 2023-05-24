@@ -1,0 +1,42 @@
+
+// Comment Item
+
+.comment-item {
+    width: 100%;
+    margin: 1rem 0;
+    border: 1px solid rgba(147, 146, 146, 0.473);
+    border-radius: 12px;
+    background-color: rgba(207, 222, 224, 0.352);
+
+    .comment-item-content {
+        font-size: 1.1em;
+        padding: 0.5rem 1rem;
+        color: black;
+        letter-spacing: 1px;
+    }
+
+    .comment-item-actions {
+        width: 95%;
+        display: flex;
+        justify-content: flex-end;
+
+        .comment-item-action {
+            font-size: 0.9em;
+            margin: 0 0.5rem;
+            transition: all 0.3s ease-in-out;
+
+            &:hover {
+                text-decoration: underline;
+                transform: scale(1.1);
+            }
+        }
+
+        .reply {
+            color: blue;
+        }
+
+        .replies {
+            color: green;
+        }
+    }
+}
