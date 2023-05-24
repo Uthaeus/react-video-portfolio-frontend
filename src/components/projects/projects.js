@@ -26,13 +26,15 @@ function Projects() {
     }
     
     return (
-        <div className="projects">
-            <h1>Projects</h1>
-            {userCtx.user?.role === "site_admin" && (
-                <button onClick={() => setIsForm(!isForm)}>
-                    {isForm ? "Hide Form" : "Add Project"}
-                </button>
-            )}
+        <div className="projects-container">
+            <div className="projects-header">
+                <h1 className="projects-title">Projects</h1>
+                {userCtx.user?.role === "site_admin" && (
+                    <button className="new-project-btn" onClick={() => setIsForm(!isForm)}>
+                        {isForm ? "Hide Form" : "Add Project"}
+                    </button>
+                )}
+            </div>
             <hr />
 
             {!isForm && <div className="projects-list">
@@ -41,7 +43,7 @@ function Projects() {
                 ))}
             </div>}
 
-            {isForm && <ProjectForm formSubmitHandler={formSubmitHandler} />}
+            {isForm && <div className="projects-form"><ProjectForm formSubmitHandler={formSubmitHandler} /></div>}
         </div>
     );
 }

@@ -6,6 +6,8 @@ import CommentCommentItem from "./comment-comment-item";
 function CommentItem({ comment }) {
     const [showReplyForm, setShowReplyForm] = useState(false);
 
+    
+
     return (
         <div className="comment-item">
             <p>{comment.content}</p>
@@ -15,7 +17,7 @@ function CommentItem({ comment }) {
 
             {showReplyForm && <CommentForm comment_id={comment.id} commentSubmitHandler={() => setShowReplyForm(false)} />}
 
-            {comment.comments?.map((comment) => <CommentCommentItem key={comment.id} comment={comment} />)}
+            {comment.replies?.map((comment) => <CommentCommentItem key={comment.id} comment={comment} />)}
         </div>
     );
 }

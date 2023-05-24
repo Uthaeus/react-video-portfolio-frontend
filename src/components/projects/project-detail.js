@@ -30,9 +30,6 @@ function ProjectDetail() {
         setComments((prevComments) => [...prevComments, comment]);
     }
 
-    console.log('project:', project);
-    console.log('comments:', comments);
-
     return (
         <div className="project-detail-container">
             <h1>{project.title}</h1>

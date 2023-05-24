@@ -1,0 +1,51 @@
+
+.projects-container {
+    width: 90%;
+    margin: 0 auto;
+
+    .projects-header {
+        width: 100%;
+        margin-top: 2rem;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+
+        .new-project-btn {
+            width: 20%;
+            height: 35px;
+            text-decoration: none;
+            padding: 3px 20px;
+            border-radius: 5px;
+            background-color: rgb(9, 63, 189);
+            color: white;
+            font-size: 1.2rem;
+            box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.5);
+            transition: all 0.3s ease-in-out;
+
+            &:hover {
+                box-shadow: 4px 4px 7px rgba(0, 0, 0, 0.703);
+                transform: scale(1.1);
+            }
+        }
+    }
+
+    .projects-title {
+        font-size: 2.5rem;
+        font-weight: 700;
+        text-align: center;
+        margin-bottom: 2rem;
+        color: rgb(26, 122, 100);
+    }
+
+    .projects-list {
+        width: 100%;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-gap: 2rem;
+
+    }
+
+    .projects-form {
+        width: 60%;
+        margin: 0 auto;
+    }
+}
