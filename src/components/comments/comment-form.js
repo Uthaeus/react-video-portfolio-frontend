@@ -1,7 +1,11 @@
 import { useForm } from "react-hook-form";
+import { useContext } from "react";
+
+import { UserContext } from "../../store/user-context";
 
 function CommentForm({ user_id, project_id, comment_id, commentSubmitHandler }) {
     const { register, handleSubmit, formState: { errors }, reset } = useForm();
+    const { user } = useContext(UserContext);
 
     function submitHandler(data) {
         console.log(data);
@@ -9,7 +13,7 @@ function CommentForm({ user_id, project_id, comment_id, commentSubmitHandler }) 
         let dataToSend = {
             comment: {
                 content: data.content,
-                user_id: user_id,
+                user_id: user.id,
             }
         };
         if (project_id) {
