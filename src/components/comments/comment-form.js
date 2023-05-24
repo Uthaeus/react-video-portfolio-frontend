@@ -3,7 +3,7 @@ import { useContext } from "react";
 
 import { UserContext } from "../../store/user-context";
 
-function CommentForm({ user_id, project_id, comment_id, commentSubmitHandler }) {
+function CommentForm({ project_id, comment_id, commentSubmitHandler }) {
     const { register, handleSubmit, formState: { errors }, reset } = useForm();
     const { user } = useContext(UserContext);
 

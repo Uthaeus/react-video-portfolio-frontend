@@ -1,6 +1,7 @@
 import { useState } from "react";
 
 import CommentForm from "./comment-form";
+import CommentCommentItem from "./comment-comment-item";
 
 function CommentItem({ comment }) {
     const [showReplyForm, setShowReplyForm] = useState(false);
@@ -13,6 +14,8 @@ function CommentItem({ comment }) {
             <p>{comment.user?.username}</p>
 
             {showReplyForm && <CommentForm comment_id={comment.id} commentSubmitHandler={() => setShowReplyForm(false)} />}
+
+            {comment.comments?.map((comment) => <CommentCommentItem key={comment.id} comment={comment} />)}
         </div>
     );
 }

@@ -30,6 +30,9 @@ function ProjectDetail() {
         setComments((prevComments) => [...prevComments, comment]);
     }
 
+    console.log('project:', project);
+    console.log('comments:', comments);
+
     return (
         <div className="project-detail-container">
             <h1>{project.title}</h1>
@@ -37,7 +40,7 @@ function ProjectDetail() {
             <div className="project-detail-comments">
                 <h2>Comments</h2>
                 {userCtx.user && <CommentForm user_id={userCtx.user.id} project_id={project.id} commentSubmitHandler={commentSubmitHandler} />}
-                {comments.map((comment) => <CommentItem key={comment.id} comment={comment} />)}
+                {comments.map((comment) => <CommentItem key={comment.id} comment={comment}d />)}
             </div>
 
             <div className="project-detail-actions">
