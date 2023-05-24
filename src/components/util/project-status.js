@@ -16,4 +16,12 @@ export function ProjectStatusToggle({ id, currentStatus }) {
         },
         body: JSON.stringify(dataToSend)
     })
+    .then((response) => {
+        if (response.ok) {
+            return response.json();
+        }
+    })
+    .then((data) => {
+    })
+    .catch((error) => console.log("project status update error:", error));
 }

@@ -61,26 +61,27 @@
 .project-item {
     width: 100%;
     padding: 0;
-    text-decoration: none;
     border: 1px solid black;
     border-radius: 2px;
     display: grid;
     grid-template-columns: 2fr 3fr;
-    transition: all 0.3s ease-in-out;
 
-    &:hover {
-        box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.5);
-        transform: scale(1.1);
-    }
 
     .project-item-title {
         font-size: 1.5rem;
         font-weight: 700;
         padding: 0 1rem;
+        text-decoration: none;
         display: flex;
         align-items: center;
         justify-content: center;
         color: $blue;
+        transition: all 0.3s ease-in-out;
+
+        &:hover {
+            box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.5);
+            transform: scale(1.1);
+        }
     }
 }
 

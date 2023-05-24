@@ -1,0 +1,16 @@
+
+.homepage-container {
+    width: 90%;
+    margin: 1rem auto;
+
+    .homepage-header {
+        padding: 1rem;
+    }
+
+    .homepage-projects-wrapper {
+        width: 100%;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-gap: 1rem;
+    }
+}
