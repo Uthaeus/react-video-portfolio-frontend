@@ -1,0 +1,49 @@
+
+.project-navigation-container {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+
+    .project-navigation-logo-wrapper {
+        width: 100%;
+        height: 300px;
+        background: url('../assets/images/space-main1.jpg') no-repeat center center;
+    }
+
+    .project-navigation-links-wrapper {
+        width: 100%;
+        height: 400px;
+        padding: 2rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+
+    .project-navigation-auth-wrapper {
+        width: 100%;
+        height: 300px;
+        padding: 2rem;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .project-navigation-link {
+        font-size: 1.4em;
+        color: #161616;
+        text-decoration: none;
+        padding: 1rem 0;
+        transition: all 0.3s ease-in-out;
+
+        &:hover {
+            color: $blue-green;
+            transform: scale(1.1);
+        }
+    }
+
+    .link-active {
+        color: $blue-green;
+        transform: scale(1.1);
+        border-bottom: 1px solid $green;
+    }
+}

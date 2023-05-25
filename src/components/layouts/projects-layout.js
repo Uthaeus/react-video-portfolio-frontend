@@ -1,11 +1,11 @@
 import { Outlet } from "react-router";
 
-import MainNavigation from "../navigation/main-navigation";
+import ProjectNavigation from "../navigation/project-navigation";
 
 function ProjectsLayout() {
     return (
         <div className="projects-layout-container">
-            <MainNavigation />
+            <ProjectNavigation />
             <Outlet />
         </div>
     );
