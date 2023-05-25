@@ -49,29 +49,29 @@ function SignUp() {
     }
 
     return (
-        <div className="sign-up-container">
-            <h1>Sign Up</h1>
+        <div className="auth-container">
+            <h1 className="auth-title">Sign Up</h1>
 
-            <form onSubmit={handleSubmit(onSubmit)}>
-                <div className="form-group">
+            <form onSubmit={handleSubmit(onSubmit)} className="auth-form">
+                <div className="form-group mb-2">
                     <label htmlFor="email">Email</label>
                     <input type="email" className="form-control" {...register("email", { required: true })} />
                     {errors?.email && <span>This field is required</span>}
                 </div>
 
-                <div className="form-group">
+                <div className="form-group mb-2">
                     <label htmlFor="username">Username</label>
                     <input type="text" className="form-control" {...register("username", { required: true })} />
                     {errors?.username && <span>This field is required</span>}
                 </div>
 
-                <div className="form-group">
+                <div className="form-group mb-2">
                     <label htmlFor="password">Password</label>
                     <input type="password" className="form-control" {...register("password", { required: true })} />
                     {errors?.password && <span>This field is required</span>}
                 </div>
 
-                <div className="form-group">
+                <div className="form-group mb-4">
                     <label htmlFor="password_confirmation">Confirm Password</label>
                     <input type="password" className="form-control" {...register("password_confirmation", { required: true })} />
                     {errors?.password_confirmation && <span>This field is required</span>}

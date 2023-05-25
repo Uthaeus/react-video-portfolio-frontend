@@ -4,7 +4,7 @@ import { useState } from "react";
 import { ProjectStatusToggle } from "../util/project-status";
 
 function ProjectItem({ project, styles }) {
-    const [status, setStatus] = useState(project.status);
+    const [status, setStatus] = useState(project?.status);
     let projectImage = project.image ? `http://localhost:4000${project.image?.url}` : "https://via.placeholder.com/300x200";
 
     function statusToggleHandler() {

@@ -3,7 +3,7 @@ import { useState } from "react";
 import CommentForm from "./comment-form";
 import CommentCommentItem from "./comment-comment-item";
 
-function CommentItem({ comment }) {
+function CommentItem({ comment, user }) {
     const [showReplyForm, setShowReplyForm] = useState(false);
     const [showReplies, setShowReplies] = useState(false);
 
@@ -15,7 +15,7 @@ function CommentItem({ comment }) {
                 <div className="comment-item-footer">
 
                     <div className="comment-item-actions">
-                        <p className="comment-item-action reply" onClick={() => setShowReplyForm(!showReplyForm)}>{showReplyForm ? 'close form' : 'reply'}</p>
+                        {user && <p className="comment-item-action reply" onClick={() => setShowReplyForm(!showReplyForm)}>{showReplyForm ? 'close form' : 'reply'}</p>}
                         {comment.replies?.length > 0 && <p className="comment-item-action replies" onClick={() => setShowReplies(!showReplies)}>{showReplies ? "hide replies" : "show replies"}</p>}
                     </div>
 

@@ -4,13 +4,84 @@
     margin: 1rem auto;
 
     .homepage-header {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
         padding: 1rem;
+
+        .homepage-title {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: $green;
+        }
+
+        .homepage-subheader {
+            width: 40%;
+            border-top: 1px solid $green;
+            margin: 1rem auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            .homepage-subheader-link {
+                font-size: 1.2rem;
+                font-weight: 700;
+                color: $green;
+                margin-right: 2rem;
+                text-decoration: none;
+                transition: all 0.2s ease-in-out;
+
+                &:hover {
+                    color: $blue-green;
+                    transform: scale(1.1);
+                }
+            }
+        }
     }
 
     .homepage-projects-wrapper {
         width: 100%;
+        margin-top: 2rem;
         display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        grid-gap: 1rem;
+        grid-template-columns: repeat(2, 1fr);
+        grid-gap: 2rem;
+    }
+}
+
+// Homepage Project Item
+
+.homepage-project-item-container {
+    width: 100%;
+    height: 300px;
+    display: grid;
+    grid-template-columns: 3fr 2fr;
+    text-decoration: none;
+    border: 1px solid rgba(128, 128, 128, 0.252);
+    box-shadow: 2px 2px 5px rgba(128, 128, 128, 0.234);
+    transition: all 0.2s ease-in-out;
+
+    .homepage-project-item-header {
+        width: 100%;
+        padding: 1rem;
+
+        .homepage-project-item-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: $blue;
+        }
+
+        .homepage-project-item-subtitle {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: $blue-green;
+        }
+    }
+
+    &:hover {
+        transform: scale(1.02);
+        box-shadow: 3px 3px 5px rgba(128, 128, 128, 0.552);
     }
 }

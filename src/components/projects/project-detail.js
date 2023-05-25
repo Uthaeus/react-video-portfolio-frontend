@@ -85,7 +85,7 @@ function ProjectDetail() {
                         </>
                     )}
 
-                    <Link className="project-detail-link back" to="/projects">Back to Projects</Link>
+                    <Link className="project-detail-link back" to="/">Back to Projects</Link>
                 </div>
             </div>
 
@@ -98,7 +98,7 @@ function ProjectDetail() {
                 <div className="project-detail-comments">
                     <h2 className="project-detail-comments-title">Comments</h2>
                     {userCtx.user && <CommentForm user_id={userCtx.user.id} project_id={project.id} commentSubmitHandler={commentSubmitHandler} />}
-                    {comments.map((comment) => <CommentItem key={comment.id} comment={comment}d />)}
+                    {comments.map((comment) => <CommentItem key={comment.id} comment={comment} user={userCtx.user} />)}
                 </div>
             </div>                
             

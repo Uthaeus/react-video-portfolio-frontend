@@ -3,11 +3,14 @@ import { Link } from "react-router-dom";
 function HomePageProjectItem({ project }) {
 
     return (
-        <div className='homepage-project-container'>
-            <Link to={`/projects/${project.id}`} className='homepage-project-title'>{project.title}</Link>
-            <p className='homepage-project-subtitle'>{project.subtitle}</p>
-            <img src={`http://localhost:4000${project.image?.url}`} alt={project.title} width='300px' height='100px' />
-        </div>
+        <Link to={`/projects/${project.id}`} className='homepage-project-item-container'>
+            <div className="homepage-project-item-header">
+                <p className='homepage-project-item-title'>{project.title}</p>
+                <p className='homepage-project-item-subtitle'>{project.subtitle}</p>
+            </div>
+
+            <img src={`http://localhost:4000${project.image?.url}`} alt={project.title} width='100%' height='300px' />
+        </Link>
     );
 }
 

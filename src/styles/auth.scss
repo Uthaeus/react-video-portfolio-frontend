@@ -1,0 +1,24 @@
+
+.auth-container {
+    width: 30%;
+    min-height: 350px;
+    margin: 3rem auto;
+    padding: 2rem;
+    border: 1px solid grey;
+    border-radius: 5px;
+    background-color: rgb(218, 218, 220);
+    font-size: 1.1em;
+    color: #161616;
+
+    .auth-title {
+        font-size: 2.2em;
+        color: $green;
+    }
+
+    .auth-form {
+        padding: 2rem;
+        display: flex;
+        flex-direction: column;
+        border-top: 1px solid grey;
+    }
+}
