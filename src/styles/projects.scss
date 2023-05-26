@@ -192,8 +192,42 @@
         .project-detail-comments {
             padding: 0 1rem;
 
+            .project-detail-comments-header {
+                width: 100%;
+                padding: 5px 0;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+
+                .comment-and-title {
+                    display: flex;
+                }
+
+                .toggle-comments-btn {
+                    font-size: 1.1em;
+                    height: 26px;
+                    padding: 2px 4px;
+                    border: 1px solid grey;
+                    border-radius: 2px;
+                }
+
+                .show-comment-form-link {
+                    text-decoration: none;
+                    font-size: 1.1em;
+                    color: $red;
+                    margin-right: 1rem;
+                    transition: all 0.3s ease-in-out;
+
+                    &:hover {
+                        cursor: pointer;
+                        transform: scale(1.1);
+                    }
+                }
+
+            }
+
             .project-detail-comments-title {
-                text-align: end;
+                float: right;
                 font-size: 1.5rem;
                 font-weight: 700;
                 color: $blue;

@@ -26,7 +26,11 @@ function CommentItem({ comment, user }) {
 
             {showReplyForm && <CommentForm comment_id={comment.id} commentSubmitHandler={() => setShowReplyForm(false)} />}
 
-            {showReplies && comment.replies?.map((comment) => <CommentCommentItem key={comment.id} comment={comment} />)}
+            {showReplies && (
+                <div className="comment-item-replies">
+                    {comment.replies?.map((comment) => <CommentCommentItem key={comment.id} comment={comment} />)}
+                </div>    
+            )}
         </>
     );
 }
